@@ -8,13 +8,12 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 @Service
-@PropertySource("classpath:custom.properties")
 public class MyFirstService {
 
     private final MyFirstClass myFirstClass;
 
-    @Value("${my.prop}")
-    private String customPropertyFromAnotherFile;
+    @Value("${my.custom.property}")
+    private String customProperty;
 
 
     public MyFirstService(
@@ -27,7 +26,7 @@ public class MyFirstService {
         return "The dependency is saying: " + myFirstClass.sayHello();
     }
 
-    public String getCustomPropertyFromAnotherFile() {
-        return customPropertyFromAnotherFile;
+    public String getCustomProperty() {
+        return customProperty;
     }
 }
