@@ -1,9 +1,10 @@
 package com.hieupv.example;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "T_STUDENT")
+@Table(name = "students")
 public class Student {
 
     @Id
@@ -14,16 +15,27 @@ public class Student {
             length = 20
     )
     private String firstname;
+    @Column(
+            name = "last_name",
+            length = 20
+    )
     private String lastname;
     private int age;
+
+    @OneToOne(
+            mappedBy = "student",
+            cascade = CascadeType.ALL
+    )
+    private StudentProfile studentProfile;
 
     @Column(unique = true)
     private String email;
 
-    @Column(
-            updatable = false
-    )
-    private String some_column;
+    @ManyToOne
+    @JoinColumn(name = "school_id")
+    @JsonBackReference
+    private School school;
+
 
     public Student() {
     }
@@ -73,5 +85,21 @@ public class Student {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
+    }
+
+    public StudentProfile getStudentProfile() {
+        return studentProfile;
+    }
+
+    public void setStudentProfile(StudentProfile studentProfile) {
+        this.studentProfile = studentProfile;
     }
 }
