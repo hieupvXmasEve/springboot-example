@@ -1,5 +1,6 @@
-package com.hieupv.example;
+package com.hieupv.example.studentProfile;
 
+import com.hieupv.example.student.Student;
 import jakarta.persistence.*;
 
 @Entity

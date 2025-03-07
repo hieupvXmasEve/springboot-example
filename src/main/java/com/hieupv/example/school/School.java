@@ -1,6 +1,7 @@
-package com.hieupv.example;
+package com.hieupv.example.school;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.hieupv.example.student.Student;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -19,7 +20,7 @@ public class School {
             mappedBy = "school"
     )
     @JsonManagedReference
-    private List<Student> students;
+    private List<com.hieupv.example.student.Student> students;
 
     public School() {
 

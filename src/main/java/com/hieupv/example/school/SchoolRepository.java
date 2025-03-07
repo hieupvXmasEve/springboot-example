@@ -1,4 +1,4 @@
-package com.hieupv.example;
+package com.hieupv.example.school;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

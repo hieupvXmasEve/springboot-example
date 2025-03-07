@@ -1,6 +1,8 @@
-package com.hieupv.example;
+package com.hieupv.example.student;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.hieupv.example.school.School;
+import com.hieupv.example.studentProfile.StudentProfile;
 import jakarta.persistence.*;
 
 @Entity
